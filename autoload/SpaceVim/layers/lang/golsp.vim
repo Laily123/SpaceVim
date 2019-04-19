@@ -70,13 +70,17 @@ function! SpaceVim#layers#lang#golsp#config() abort
   let g:LanguageClient_autoStart = 1
   let g:lsp_async_completion = 1
 
-  let cmd = 'gopls --logfile=/var/log/gopls/gopls.log'
+
+  autocmd BufWritePost *.go call LanguageClient_textDocument_formatting()
+  "autocmd BufWritePost *.go exec '!goimports'
+
+  let cmd = 'gopls'
   let ft = 'go'
   if executable(cmd) != 1
         call SpaceVim#logger#warn('Failed to enable lsp for ' . ft . ', ' . cmd . ' is not executable!')
   endif
 
-  call SpaceVim#lsp#reg_server(ft, [cmd]) 
+  call SpaceVim#lsp#reg_server(ft, [cmd, '--logfile=/tmp/gopls.log']) 
   call SpaceVim#mapping#gd#add('go',
         \ function('SpaceVim#lsp#go_to_def'))
 

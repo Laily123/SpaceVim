@@ -64,7 +64,6 @@ function! SpaceVim#layers#lang#go#config() abort
   let g:neomake_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
   let g:go_snippet_engine = 'neosnippet'
   let g:go_def_mode = 'gopls'
-  let g:go_snippet_engine = 'neosnippet'
 
   if SpaceVim#layers#lsp#check_filetype('go')
     call SpaceVim#mapping#gd#add('go',
