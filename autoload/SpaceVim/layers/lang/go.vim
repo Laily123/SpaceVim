@@ -55,10 +55,15 @@ function! SpaceVim#layers#lang#go#config() abort
   let g:go_highlight_structs = 1
   let g:go_highlight_operators = 1
   let g:go_highlight_build_constraints = 1
+  let g:go_jump_to_error = 0
+  let g:go_metalinter_autosave = 1
   let g:go_fmt_command = 'goimports'
   let g:syntastic_go_checkers = ['golint', 'govet']
   let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-  let g:neomake_go_gometalinter_args = ['--disable-all']
+  "let g:neomake_go_gometalinter_args = ['--disable-all']
+  let g:neomake_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
+  let g:go_snippet_engine = 'neosnippet'
+  let g:go_def_mode = 'gopls'
   let g:go_snippet_engine = 'neosnippet'
 
   if SpaceVim#layers#lsp#check_filetype('go')
