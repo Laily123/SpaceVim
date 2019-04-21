@@ -46,7 +46,7 @@ function! SpaceVim#layers#lang#golsp#plugins() abort
   "  call add(plugins, ['zchee/deoplete-go', {'on_ft' : 'go', 'build': 'make'}])
   "endif
   "return plugins
-  let plugins = []
+  let plugins = [['fatih/vim-go', { 'on_ft' : 'go', 'loadconf_before' : 1}]]
   if has('nvim')
     call add(plugins, ['autozimu/LanguageClient-neovim',
           \ { 'merged': 0, 'if': has('python3'), 'build' : 'bash install.sh' }])
@@ -80,7 +80,7 @@ function! SpaceVim#layers#lang#golsp#config() abort
         call SpaceVim#logger#warn('Failed to enable lsp for ' . ft . ', ' . cmd . ' is not executable!')
   endif
 
-  call SpaceVim#lsp#reg_server(ft, [cmd, '--logfile=/tmp/gopls.log']) 
+  call SpaceVim#lsp#reg_server(ft, [cmd, 'serve', '-logfile','/tmp/gopls.log']) 
   call SpaceVim#mapping#gd#add('go',
         \ function('SpaceVim#lsp#go_to_def'))
 
