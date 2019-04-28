@@ -146,7 +146,7 @@ function! s:language_specified_mappings() abort
         \ ':GoImport ',
         \ 'add import', 0)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','r'],
-        \ 'call LanguageClient#textDocument_references()',
+        \ ':GoReferrers',
         \ 'go referrers', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','s'],
         \ ':GoFillStruct',
