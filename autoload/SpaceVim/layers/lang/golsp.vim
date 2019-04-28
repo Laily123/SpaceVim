@@ -115,42 +115,42 @@ function! s:language_specified_mappings() abort
   call SpaceVim#mapping#space#langSPC('nmap', ['l','g'],
         \ 'call SpaceVim#lsp#go_to_def()',
         \ 'go def', 1)
-  "call SpaceVim#mapping#space#langSPC('nmap', ['l','G'],
-  "      \ ':GoGenerate',
-  "      \ 'go generate', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','G'],
+        \ ':GoGenerate',
+        \ 'go generate', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','h'],
         \ '<Plug>(go-info)',
         \ 'go info', 0)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','i'],
-        \ 'call LanguageClient#textDocument_implementation()',
+        \ ':GoImplements',
         \ 'go implements', 1)
-  "call SpaceVim#mapping#space#langSPC('nmap', ['l','I'],
-  "      \ ':GoImpl',
-  "      \ 'impl stubs', 1)
-  "call SpaceVim#mapping#space#langSPC('nmap', ['l','k'],
-  "      \ ':GoAddTags',
-  "      \ 'add tags', 1)
-  "call SpaceVim#mapping#space#langSPC('nmap', ['l','K'],
-  "      \ ':GoRemoveTags',
-  "      \ 'remove tags', 1)
-  "call SpaceVim#mapping#space#langSPC('nmap', ['l','l'],
-  "      \ ':GoDecls',
-  "      \ 'decl file', 1)
-  "call SpaceVim#mapping#space#langSPC('nmap', ['l','L'],
-  "      \ ':GoDeclsDir',
-  "      \ 'decl dir', 1)
-  "call SpaceVim#mapping#space#langSPC('nmap', ['l','m'],
-  "      \ ':GoImports',
-  "      \ 'format imports', 1)
-  "call SpaceVim#mapping#space#langSPC('nmap', ['l','M'],
-  "      \ ':GoImport ',
-  "      \ 'add import', 0)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','I'],
+        \ ':GoImpl',
+        \ 'impl stubs', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','k'],
+        \ ':GoAddTags',
+        \ 'add tags', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','K'],
+        \ ':GoRemoveTags',
+        \ 'remove tags', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','l'],
+        \ ':GoDecls',
+        \ 'decl file', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','L'],
+        \ ':GoDeclsDir',
+        \ 'decl dir', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','m'],
+        \ ':GoImports',
+        \ 'format imports', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','M'],
+        \ ':GoImport ',
+        \ 'add import', 0)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','r'],
         \ 'call LanguageClient#textDocument_references()',
         \ 'go referrers', 1)
-  "call SpaceVim#mapping#space#langSPC('nmap', ['l','s'],
-  "      \ ':GoFillStruct',
-  "      \ 'fill struct', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','s'],
+        \ ':GoFillStruct',
+        \ 'fill struct', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','t'],
         \ '<Plug>(go-test)',
         \ 'go test', 0)
