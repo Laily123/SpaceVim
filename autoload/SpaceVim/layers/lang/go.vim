@@ -41,10 +41,10 @@
 
 
 function! SpaceVim#layers#lang#go#plugins() abort
-  let plugins = [['fatih/vim-go', { 'on_ft' : 'go', 'loadconf_before' : 1}]]
-  if has('nvim') && g:spacevim_autocomplete_method ==# 'deoplete'
-    call add(plugins, ['zchee/deoplete-go', {'on_ft' : 'go', 'build': 'make'}])
-  endif
+  let plugins = [['laily123/vim-go', { 'on_ft' : 'go', 'loadconf_before' : 1}]]
+  " if has('nvim') && g:spacevim_autocomplete_method ==# 'deoplete'
+  "  call add(plugins, ['zchee/deoplete-go', {'on_ft' : 'go', 'build': 'make'}])
+  " endif
   return plugins
 endfunction
 
@@ -56,10 +56,16 @@ function! SpaceVim#layers#lang#go#config() abort
   let g:go_highlight_operators = 1
   let g:go_highlight_build_constraints = 1
   let g:go_fmt_command = 'goimports'
-  let g:syntastic_go_checkers = ['golint', 'govet']
+  "let g:go_metalinter_command='golangci-lint'
+  "let g:go_metalinter_enabeld = ['deadcode', 'errcheck', 'gosimple', 'govet', 'staticcheck', 'typecheck', 'unused', 'varcheck']
+  "let g:go_debug=['lsp']
+  let g:go_metalinter_autosave = 1
+  let g:syntastic_go_checkers = ['govet', 'golint']
   let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
   let g:neomake_go_gometalinter_args = ['--disable-all']
   let g:go_snippet_engine = 'neosnippet'
+  let g:go_jump_to_error = 0
+  let g:go_def_mode='gopls'
 
   if SpaceVim#layers#lsp#check_filetype('go')
     call SpaceVim#mapping#gd#add('go',
